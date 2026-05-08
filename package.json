@@ -1,0 +1,66 @@
+{
+  "name": "@homebridge/plugin-logger",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.0",
+  "description": "Async, variadic, device-aware logger utility for Homebridge plugins.",
+  "author": "Donavan Becker",
+  "license": "MIT",
+  "homepage": "https://github.com/homebridge/plugin-logger#readme",
+  "maintainers": [
+    "donavanbecker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/homebridge/plugin-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/homebridge/plugin-logger/issues"
+  },
+  "keywords": [
+    "homebridge",
+    "logger",
+    "device",
+    "plugin",
+    "typescript"
+  ],
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "check": "npm install && npm outdated",
+    "build": "tsc --project tsconfig.json",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix --no-warn-ignored",
+    "prepublishOnly": "npm run lint && npm run build && npm run docs && npm run docs:lint",
+    "prepare": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test-coverage": "npm run test -- --coverage",
+    "docs": "typedoc",
+    "docs:lint": "typedoc --emit none --treatWarningsAsErrors"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^8.2.0",
+    "@types/node": "^25.6.2",
+    "@vitest/coverage-v8": "^4.1.5",
+    "eslint": "^10.3.0",
+    "eslint-plugin-format": "^2.0.1",
+    "eslint-plugin-perfectionist": "^5.8.0",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "homebridge": "^2.0.1",
+    "nodemon": "^3.1.14",
+    "shx": "^0.4.0",
+    "typedoc": "^0.28.19",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
+  }
+}
